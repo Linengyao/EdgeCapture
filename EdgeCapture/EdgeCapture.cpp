@@ -28,6 +28,7 @@ int main()
 		imshow("edgex", Edge_Dx);
 		imshow("edgey", Edge_Dy);
 
+
 		waitKey(30);
 
 	}
