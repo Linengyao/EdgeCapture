@@ -2,10 +2,36 @@
 //
 
 #include <iostream>
-
+#include <opencv.hpp>
+using namespace cv;
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+
+	VideoCapture cap(0);
+
+	while (1)
+	{
+		cv::Mat frame;
+		cv::Mat Edge_X;
+		cv::Mat Edge_Y;
+		Mat Edge_Dx;
+		Mat Edge_Dy;
+		cap >> frame;
+
+
+		Sobel(frame, Edge_X, CV_16SC1, 1, 0, 3);
+		Sobel(frame, Edge_Y, CV_16SC1, 0, 1, 3);
+		convertScaleAbs(Edge_X, Edge_Dx);
+		convertScaleAbs(Edge_Y, Edge_Dy);
+		imshow("frame", frame);
+		imshow("edgex", Edge_Dx);
+		imshow("edgey", Edge_Dy);
+
+		waitKey(30);
+
+	}
+    //std::cout << "Hello World!\n";
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
