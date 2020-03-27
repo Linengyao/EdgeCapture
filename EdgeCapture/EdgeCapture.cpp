@@ -19,7 +19,7 @@ int main()
 		Mat Edge_Dy;
 		cap >> frame;
 
-
+		//x,y方向微分
 		Sobel(frame, Edge_X, CV_16SC1, 1, 0, 3);
 		Sobel(frame, Edge_Y, CV_16SC1, 0, 1, 3);
 		convertScaleAbs(Edge_X, Edge_Dx);
